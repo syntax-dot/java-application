@@ -4,23 +4,19 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.os.Bundle;
-
-import com.google.android.material.snackbar.Snackbar;
-
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.provider.Settings;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.javaapplication.databinding.ActivityMainBinding;
-
-import android.view.Menu;
-import android.view.MenuItem;
+import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -46,9 +42,10 @@ public class MainActivity extends AppCompatActivity {
                 Settings.Secure.ANDROID_ID
         );
 
-        // Устанавливаем androidId в качестве заголовка Toolbar
-        getSupportActionBar().setTitle(androidId);
+        String advertisingId = new MyAdIdClient().determineAdvertisingInfo(this);
 
+        // Устанавливаем androidId в качестве заголовка Toolbar
+        getSupportActionBar().setTitle(advertisingId);
 
 
         binding.fab.setOnClickListener(new View.OnClickListener() {
