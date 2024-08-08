@@ -46,4 +46,5 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
     implementation("androidx.ads:ads-identifier:1.0.0-alpha01")
     implementation("com.google.guava:guava:28.0-android")
+    implementation("com.google.android.gms:play-services-ads-identifier:18.0.1")
 }
